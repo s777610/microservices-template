@@ -1,0 +1,10 @@
+{
+  "name": "ticketing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "WEI-CHENG HUNG <s777610@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "npx git-cz"
+  }
+}
