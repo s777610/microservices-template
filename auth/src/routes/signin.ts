@@ -4,8 +4,7 @@ import { body } from 'express-validator';
 
 import { Password } from '../utils/password';
 import { User } from '../models/user';
-import { validateRequest } from '../middlewares/validateRequest';
-import { BadRequestError } from '../errors/badRequestError';
+import { validateRequest, BadRequestError } from '@wchtickets/common';
 
 const router = express.Router();
 
