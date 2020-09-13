@@ -11,6 +11,11 @@ const stan = nats.connect('ticketing', randomBytes(4).toString('hex'), {
 stan.on('connect', () => {
   console.log('Listener connected to NATS');
 
+  stan.on('close', () => {
+    console.log('NATS connection closed!');
+    process.exit();
+  });
+
   // when setManualAckMode:true, we can make sure we process some data
   // in listener successfully, otherwise, the publisher will send message again
   const options = stan.subscriptionOptions().setManualAckMode(true);
@@ -30,3 +35,6 @@ stan.on('connect', () => {
     msg.ack();
   });
 });
+
+process.on('SIGINT', () => stan.close());
+process.on('SIGTERM', () => stan.close());
